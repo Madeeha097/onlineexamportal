@@ -4,7 +4,7 @@
     include('../resources/topnav.php');
 
 ?>
-hello
+
 <div class="container mt-5" style="position: relative; left: 401px; top: 168px">
     <div class="row">
         <div class="col-md-6 offset-md-3">
