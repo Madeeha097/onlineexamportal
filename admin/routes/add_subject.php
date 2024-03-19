@@ -4,12 +4,14 @@
         header("Location: ../views/login.php");
     } 
     require_once('../resources/config.php');
-    $sem_name  = $_POST['semester_name'];
-    $stream_id = $_POST['stream_id'];
+    $subject_name  = $_POST['subject_name'];
+    $subject_code  = $_POST['subject_code'];
+    
+    
     
 
-    $query = "INSERT INTO tbl_semester (semester_name, stream_id) 
-                VALUES('$sem_name', '$stream_id')";
+    $query = "INSERT INTO tbl_subject (subject_name, subject_code) 
+                VALUES('$subject_name', '$subject_code')";
     $run = mysqli_query($con, $query);
 
     if($run) {
