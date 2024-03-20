@@ -13,6 +13,8 @@
     }
     else if($filename == 'fetch_semester')
     //This section fetches semester details
+
+    if($filename == 'edit_semester')
     $get_data = "SELECT * FROM  tbl_semester WHERE id = '$data_id'";
     $run_data = mysqli_query($con, $get_data);
     $row_data = mysqli_fetch_array($run_data);

@@ -20,10 +20,7 @@ $(document).ready(function(){
 
     });
 
-});
 
-
-$(document).ready(function(){
     $('#btnAddStream').on('click', function(e){
         e.preventDefault();
         let stream_name = $('#stream_name').val();
@@ -44,10 +41,9 @@ $(document).ready(function(){
 
     });
 
-});
 
 
-$(document).ready(function(){
+
     $('#btnAddSubject').on('click', function(e){
         e.preventDefault();
         let subject_name = $('#subject_name').val();
@@ -69,10 +65,7 @@ $(document).ready(function(){
 
     });
 
-});
 
-
-$(document).ready(function(){
     $('#btnAddQuiz').on('click', function(e){
         e.preventDefault();
         let title = $('#title').val();
@@ -100,11 +93,7 @@ $(document).ready(function(){
 
     });
 
-});
 
-
-
-$(document).ready(function(){
     $('#btnAddQuestion').on('click', function(e){
         e.preventDefault();
         let question_text = $('#question_text').val();
@@ -127,10 +116,6 @@ $(document).ready(function(){
 
     });
 
-});
-
-
-$(document).ready(function(){
     $('#btnAddUser').on('submit', function(e){
         e.preventDefault();
         let formData = new FormData(this);
@@ -182,6 +167,27 @@ $(document).ready(function(){
         });
     });
 
+    $('#edit_semester').on('click', function(e){
+        e.preventDefault();
+        let semester_name = $('#sem_name').val();
+        let stream_id = $('#stream_id').val();
+        let filename = 'fetch_semester';
+
+        $.ajax({
+            url: "../routes/add_semester.php",
+            method: "post",
+            data: {semester_name:semester_name, stream_id:stream_id, filename:filename},
+            success: function(returnedData) {
+                if(returnedData == 200) {
+
+                } else{
+
+                }
+            }
+        });
+
+    });
+
 
     //this is update handlers section
     $('#frmUpdateProfileDetails').on('submit', function(e){
@@ -203,5 +209,110 @@ $(document).ready(function(){
             processData: false,
             cache: false
         });
+    });
+
+    $('#frmUpdateQuestionDetails').on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: "../routes/update_details.php",
+            method: "post",
+            data: formData,
+            success: function(returnedData) {
+                if(returnedData == 200) {
+                    // handle success
+                } else {
+                    // handle failure
+                }
+            },
+            contentType: false,
+            processData: false,
+            cache: false
+        });
+    });
+});
+
+$('#frmUpdateQuizDetails').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    
+    $.ajax({
+        url: "../routes/update_details.php",
+        method: "post",
+        data: formData,
+        success: function(returnedData) {
+            if(returnedData == 200) {
+                // handle success
+            } else {
+                // handle failure
+            }
+        },
+        contentType: false,
+        processData: false,
+        cache: false
+    });
+});
+
+$('#frmUpdateSubjectDetails').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    
+    $.ajax({
+        url: "../routes/update_details.php",
+        method: "post",
+        data: formData,
+        success: function(returnedData) {
+            if(returnedData == 200) {
+                // handle success
+            } else {
+                // handle failure
+            }
+        },
+        contentType: false,
+        processData: false,
+        cache: false
+    });
+});
+
+$('#frmUpdateStreamDetails').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    
+    $.ajax({
+        url: "../routes/update_details.php",
+        method: "post",
+        data: formData,
+        success: function(returnedData) {
+            if(returnedData == 200) {
+                // handle success
+            } else {
+                // handle failure
+            }
+        },
+        contentType: false,
+        processData: false,
+        cache: false
+    });
+});
+
+$('#frmUpdateSemesterDetails').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    
+    $.ajax({
+        url: "../routes/update_details.php",
+        method: "post",
+        data: formData,
+        success: function(returnedData) {
+            if(returnedData == 200) {
+                // handle success
+            } else {
+                // handle failure
+            }
+        },
+        contentType: false,
+        processData: false,
+        cache: false
     });
 });
