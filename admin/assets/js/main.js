@@ -136,6 +136,7 @@ $(document).ready(function(){
                 contentType: false,
                 processData: false,
                 cache: false
+     }
         });
 
     });
@@ -166,7 +167,27 @@ $(document).ready(function(){
             }
         });
     });
+    $(document).ready(function(){
+        $('#editstream').on('click', function(e){
+            e.preventDefault();
+            let stream_name = $('#stream_name').val();
+            let stream_code = $('#stream_code').val();
+    let filename = 'fetch_stream'
+            $.ajax({
+                url: "../routes/add_semester.php",
+                method: "post",
+                data: {stream_name:stream_name, stream_code:stream_code, filename:filename},
+                success: function(returnedData) {
+                    if(returnedData == 200) {
+    
+                    } else{
+    
+                    }
+                }
+            });
+        });       
 
+<<<<<<< HEAD
     $('#edit_semester').on('click', function(e){
         e.preventDefault();
         let semester_name = $('#sem_name').val();
@@ -188,7 +209,87 @@ $(document).ready(function(){
 
     });
 
+=======
+$(document).ready(function(){
+    $('#editSubject').on('click', function(e){
+        e.preventDefault();
+        let subject_name = $('#subject_name').val();
+        let semester_id = $('#semester_id').val();
+        let stream_id = $('#stream_id').val();
+        let filename = 'fetch_subject'
+        $.ajax({
+            url: "../routes/add_semester.php",
+            method: "post",
+            data: {subject_name:subject_name, semester_id:semester_id, stream_id:stream_id, filename:filename},
+            success: function(returnedData) {
+                if(returnedData == 200) {
+>>>>>>> 06debf76a41ba51a7e9f06873002ea7d7061c34a
 
+                } else{
+
+                }
+            }
+        });
+
+    });
+
+});
+
+$(document).ready(function(){
+    $('#editQuiz').on('click', function(e){
+        e.preventDefault();
+        let title = $('#title').val();
+        let creator_id = $('#creator_id').val();
+        let creation_date = $('#creation_date').val();
+        let start_date = $('#start_date').val();
+        let end_date = $('#end_date').val();
+        let stream_id = $('#stream_id').val();
+        let semester_id = $('#semester_id').val();
+        let subject_id = $('#subject_id').val();
+        let filename = 'fetch_quiz'
+
+    $.ajax({
+            url: "../routes/add_semester.php",
+            method: "post",
+            data: {title:title, creator_id:creator_id, creation_date:creation_date, start_date:start_date, end_date:end_date, stream_id:stream_id, semester_id:semester_id, subject_id:subject_id, filename:filename},
+            success: function(returnedData) {
+                if(returnedData == 200) {
+
+                } else{
+
+                }
+            }
+        });
+
+    });
+
+});
+
+$(document).ready(function(){
+    $('#editQuestion').on('click', function(e){
+        e.preventDefault();
+        let question_text = $('#question_text').val();
+        let question_type = $('#question_type').val();
+       // let correct_answer = $('#correct_answer').val();
+        let subject_id = $('#subject_id').val();
+        let filename = 'fetch_question'
+
+        $.ajax({
+            url: "../routes/add_semester.php",
+            method: "post",
+            data: {question_text:question_text, question_type:question_type, correct_answer:correct_answer, subject_id:subject_id, filename:filename},
+            success: function(returnedData) {
+                if(returnedData == 200) {
+
+                } else{
+
+                }
+            }
+        });
+
+    });
+
+});
     //this is update handlers section
     $('#frmUpdateProfileDetails').on('submit', function(e){
         e.preventDefault();
