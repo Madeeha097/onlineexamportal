@@ -136,10 +136,8 @@ $(document).ready(function(){
                 contentType: false,
                 processData: false,
                 cache: false
-     }
+            });
         });
-
-    });
 
 
     // This is fetch handlers section
@@ -167,7 +165,7 @@ $(document).ready(function(){
             }
         });
     });
-    $(document).ready(function(){
+
         $('#editstream').on('click', function(e){
             e.preventDefault();
             let stream_name = $('#stream_name').val();
@@ -187,7 +185,6 @@ $(document).ready(function(){
             });
         });       
 
-<<<<<<< HEAD
     $('#edit_semester').on('click', function(e){
         e.preventDefault();
         let semester_name = $('#sem_name').val();
@@ -209,8 +206,6 @@ $(document).ready(function(){
 
     });
 
-=======
-$(document).ready(function(){
     $('#editSubject').on('click', function(e){
         e.preventDefault();
         let subject_name = $('#subject_name').val();
@@ -223,7 +218,6 @@ $(document).ready(function(){
             data: {subject_name:subject_name, semester_id:semester_id, stream_id:stream_id, filename:filename},
             success: function(returnedData) {
                 if(returnedData == 200) {
->>>>>>> 06debf76a41ba51a7e9f06873002ea7d7061c34a
 
                 } else{
 
@@ -233,9 +227,6 @@ $(document).ready(function(){
 
     });
 
-});
-
-$(document).ready(function(){
     $('#editQuiz').on('click', function(e){
         e.preventDefault();
         let title = $('#title').val();
@@ -263,9 +254,6 @@ $(document).ready(function(){
 
     });
 
-});
-
-$(document).ready(function(){
     $('#editQuestion').on('click', function(e){
         e.preventDefault();
         let question_text = $('#question_text').val();
@@ -289,7 +277,6 @@ $(document).ready(function(){
 
     });
 
-});
     //this is update handlers section
     $('#frmUpdateProfileDetails').on('submit', function(e){
         e.preventDefault();
@@ -332,7 +319,6 @@ $(document).ready(function(){
             cache: false
         });
     });
-});
 
 $('#frmUpdateQuizDetails').on('submit', function(e){
     e.preventDefault();
@@ -416,4 +402,6 @@ $('#frmUpdateSemesterDetails').on('submit', function(e){
         processData: false,
         cache: false
     });
+});
+
 });
