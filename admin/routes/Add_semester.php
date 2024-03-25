@@ -5,11 +5,11 @@
     } 
     require_once('../resources/config.php');
     $sem_name  = $_POST['semester_name'];
-    $stream_id = $_POST['stream_id'];
+    // $stream_id = $_POST['stream_id'];
     
 
-    $query = "INSERT INTO tbl_semester (semester_name, stream_id) 
-                VALUES('$sem_name', '$stream_id')";
+    $query = "INSERT INTO tbl_semester (semester_name) 
+                VALUES('$sem_name')";
     $run = mysqli_query($con, $query);
 
     if($run) {

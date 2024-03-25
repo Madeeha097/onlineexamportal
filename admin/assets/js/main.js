@@ -2,18 +2,27 @@
 $(document).ready(function(){
     $('#btnAddSemester').on('click', function(e){
         e.preventDefault();
-        let semester_name = $('#sem_name').val();
-        let stream_id = $('#stream_id').val();
+        let semester_name = $('#semester_name').val();
+        // let stream_id = $('#stream_id').val();
 
         $.ajax({
             url: "../routes/add_semester.php",
             method: "post",
-            data: {semester_name:semester_name, stream_id:stream_id},
+            data: {semester_name:semester_name},
             success: function(returnedData) {
                 if(returnedData == 200) {
-
+                    swal({
+                        title: "Success!",
+                        text: "You have successfully added new semester!",
+                        icon: "success",
+                      });
+                      window.open('../views/add_semester.php','_SELF')
                 } else{
-
+                    swal({
+                        title: "Error!",
+                        text: "Error occured while trying to add new semester!",
+                        icon: "error",
+                      });
                 }
             }
         });
@@ -27,7 +36,7 @@ $(document).ready(function(){
         let stream_code = $('#stream_code').val();
 
         $.ajax({
-            url: "../routes/add_semester.php",
+            url: "../routes/add_stream.php",
             method: "post",
             data: {stream_name:stream_name, stream_code:stream_code},
             success: function(returnedData) {
@@ -51,7 +60,7 @@ $(document).ready(function(){
         let stream_id = $('#stream_id').val();
 
         $.ajax({
-            url: "../routes/add_semester.php",
+            url: "../routes/add_subject.php",
             method: "post",
             data: {subject_name:subject_name, semester_id:semester_id, stream_id:stream_id},
             success: function(returnedData) {
@@ -79,7 +88,7 @@ $(document).ready(function(){
 
 
     $.ajax({
-            url: "../routes/add_semester.php",
+            url: "../routes/add_quiz.php",
             method: "post",
             data: {title:title, creator_id:creator_id, creation_date:creation_date, start_date:start_date, end_date:end_date, stream_id:stream_id, semester_id:semester_id, subject_id:subject_id},
             success: function(returnedData) {
@@ -102,7 +111,7 @@ $(document).ready(function(){
         let subject_id = $('#subject_id').val();
 
         $.ajax({
-            url: "../routes/add_semester.php",
+            url: "../routes/add_question.php",
             method: "post",
             data: {question_text:question_text, question_type:question_type, correct_answer:correct_answer, subject_id:subject_id},
             success: function(returnedData) {
@@ -122,7 +131,7 @@ $(document).ready(function(){
         
 
         $.ajax({
-            url: "../routes/add_semester.php",
+            url: "../routes/add_user.php",
             method: "post",
             data: {formData:formData},
             success: function(returnedData) {
