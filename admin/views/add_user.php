@@ -6,10 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title> Stream Page</title>
+        <title> Semester Page</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npn/bootsstrap@4.0.0/dist/css/bootstrap.min.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -43,19 +42,19 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Stream Adding Section</h1>
+                        <h1 class="mt-4">Semester Adding Section</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Stream</li>
+                            <li class="breadcrumb-item active">Semester</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
                                 
                                 <form method="post">
-                                    <input type="text" class="form-control" name="stream_name" id="stream_code" />
+                                    <input type="text" class="form-control" name="user_name" id="user_name" />
                                     <br />
 
-                                    <input type="button" class="btn btn-primary" id="btnAddStream" value="Add Stream" /> 
+                                    <input type="button" class="btn btn-primary" id="btnAdduser" value="Add user" /> 
                                 </form>
 
                             </div>
@@ -66,32 +65,35 @@
                                 DataTable Example
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple" class="table table-striped">
+                                <table id="datatablesSimple">
                                     <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Action</th>
-                                            
                                         </tr>
-                                    </thead>
-                                    
+                                    </tfoot>
                                     <tbody>
 
                                     <?php
                                         $sno = 1;
-                                        $get_data = "SELECT * FROM tbl_stream";
+                                        $get_data = "SELECT * FROM tbl_user";
                                         $run_query = mysqli_query($con, $get_data);
                                         while($row_data = mysqli_fetch_array($run_query)) {
                                     ?>
                                         <tr>
                                             <td><?=$sno?></td>
-                                            <td><?=$row_data['stream_name'];?></td>
-                                            <td colspan="2">
-                                                <a data-id="<?php echo $row_data['stream_id'];?>" id="editstream" href="javascrip:void(0);"data-toggle="modal"
-                                                data-target="#addStreaModal" title="edit stream"> Edit </a>
-|
-                                                <a href="#"> Delete </a>
+                                            <td><?=$row_data['user_name'];?></td>
+                                            <td>
+                                                <a href=""> Edit </a>
+                                                <a href=""> Delete </a>
+
                                             </td>
                                         </tr>
                                        <?php $sno++;} ?>
@@ -101,42 +103,5 @@
                         </div>
                     </div>
                 </main>
-
-                <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script src="../assets/js/custom.js"></script>
-
-</body>
-</html>
-
-<div class="modal fade" id="addStreaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addStreamModalLabel">Add Stream </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="frmUpdateStreamDetails" method="post">
-                <div class="mb-3">
-                    <label for="streamName" class="form-label">Stream Name</label>
-                    <input type="text" class="form-control" id="streamName" placeholder="Enter stream name">
-                </div>
-                   
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="btnUpdateStream">Save  Stream</button>
-                    </div>
-                         </div>
-                     </div>
-                </div>
-        </body>
-</html>
-                    
-
-           
+       
+                <?php include('../resources/admin_footer.php');?>
