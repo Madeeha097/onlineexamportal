@@ -3,7 +3,6 @@ $(document).ready(function(){
     $('#btnAddSemester').on('click', function(e){
         e.preventDefault();
         let semester_name = $('#semester_name').val();
-        // let stream_id = $('#stream_id').val();
 
         $.ajax({
             url: "../routes/add_semester.php",
@@ -11,18 +10,20 @@ $(document).ready(function(){
             data: {semester_name:semester_name},
             success: function(returnedData) {
                 if(returnedData == 200) {
-                    swal({
-                        title: "Success!",
-                        text: "You have successfully added new semester!",
-                        icon: "success",
-                      });
-                      window.open('../views/add_semester.php','_SELF')
+swal({
+    title: "success!",
+    text: "you have successfully added a new semester!",
+    icon: "success",
+});
+window.open ('../views/add_semester.php','_SELF')
+
                 } else{
                     swal({
-                        title: "Error!",
-                        text: "Error occured while trying to add new semester!",
+                        title: "error!",
+                        text: "error ocurred while trying to add a new semester!",
                         icon: "error",
-                      });
+                    });
+
                 }
             }
         });
@@ -177,6 +178,7 @@ $(document).ready(function(){
 
         $('#editstream').on('click', function(e){
             e.preventDefault();
+            alert('hi'); return;
             let stream_name = $('#stream_name').val();
             let stream_code = $('#stream_code').val();
     let filename = 'fetch_stream'
@@ -337,7 +339,7 @@ $('#frmUpdateQuizDetails').on('submit', function(e){
         url: "../routes/update_details.php",
         method: "post",
         data: formData,
-        success: function(returnedData) {
+        success: function(returnedData) {   
             if(returnedData == 200) {
                 // handle success
             } else {
